@@ -1,5 +1,7 @@
 ### NormalyzerDE ###
 
+## Normalise a dataset which may be a combination of multiple datasets merged together, for example.
+
 #load relevant libraries
 library(NormalyzerDE)
 
@@ -16,8 +18,9 @@ dataFp <- "/home/cathal_king/Desktop/ECM_Data/ECM_master_matrix_noNaN.csv"
 # Finally, call the NormalyzerDE command with the following line. You should then see it processing in the Console. 
 # Add any other relevant Arguments to the commands by checking the package notes.
 # jobName refers the folder name that will be created in the outDir.
-NormalyzerDE::normalyzer(jobName="Cathals_ECMrun", designPath = designFp, dataPath = dataFp, outputDir=outDir, noLogTransform = T, omitLowAbundSamples = T, sampleAbundThres = 110)
-# 
+NormalyzerDE::normalyzer(jobName="Cathals_ECMrun", designPath = designFp, dataPath = dataFp, outputDir=outDir)
+# , noLogTransform = T, omitLowAbundSamples = T, sampleAbundThres = 110
+
 ## Notes ###
 # Both your design and data matrices ideally should be tab seperated text files or Text CSV files. Comma seperated will not work.
 # Calling the arguments designFp or dataFp in the console will not show a matrix. These arguments are designed to take file paths directly, rather than load data frames.
