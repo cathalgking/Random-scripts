@@ -3,7 +3,7 @@
 # call the package
 library(EnhancedVolcano)
 # import the dataset
-res <- read.csv("/home/cathal_king/Downloads/L,M,N VS O,P,Q,R-2.txt", header=TRUE, sep = '\t')
+res <- read.csv("/home/cathal_king/Downloads/df.txt", header=TRUE, sep = '\t')
 
 # The EnhancedVolcano package expects a dataset containing p-value, log fold change and the genes/identifiers of interest. 
 # If you are importing data that already has been converted to -log10, for example perseus data, they can be converted back to p-value with the folowing line of code. 
