@@ -12,5 +12,5 @@ data2.fillna(0, inplace=True)
 
 data2.head(11)
 
-# export as an excel initially and then save as text csv
-data2.to_excel('/home/cathal_king/Desktop/MergedTBIdataStudy_noNaN.xlsx')
+# export as csv
+data2.to_csv('/home/cathal_king/Desktop/MergedTBIdataStudy_noNaN.csv', index = F)
