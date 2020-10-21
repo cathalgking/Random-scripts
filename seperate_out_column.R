@@ -1,6 +1,8 @@
+#################################################################################################################################################
 # If a column contains more than 1 identifier/entry per cell (e.g. geneID, proteinID etc.) then the data can be partitioned into seperate columns.
 # Example - Below the column contains "GeneID|ProteinID" all in 1 column and the desired output is "GeneID" by itself in a new column.
 # use regex to make the pattern
+#################################################################################################################################################
 
 library(tidyr)
 library(tidyverse)
