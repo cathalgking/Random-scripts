@@ -13,7 +13,7 @@ library(ggplot2)
 library(ggpubr)
 
 # import a df (data-frame)
-df <- read.csv("/home/cathal_king/Documents/R01_A01_test_df.csv" , header = T)
+df <- read.csv("~/Documents/R01_A01_test_df.csv" , header = T)
 
 # View the df in a spreadsheet-like display
 utils::View(df)
