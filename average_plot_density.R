@@ -1,4 +1,4 @@
-
+# plot a average density plot with housekeeping genes and non-housekeeping genes layered over
 
 genes = readLines("/home/cathal_king/Downloads/hk.txt")
 # dataset
