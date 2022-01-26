@@ -1,6 +1,6 @@
 # join/merge datasets
 
-# Utilize the Tidyverse collection
+# libraries
 library(dplyr)
 library(tidyr)
 
