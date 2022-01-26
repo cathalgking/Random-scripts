@@ -4,7 +4,7 @@
 # top of the column of genes must be labelled with 'Gene_id' in this case
 #####################################################################################################################################################################################
 
-# read in dplyr and tidyr
+# libraries
 library(dplyr)
 library(tidyr)
 
