@@ -1,0 +1,77 @@
+---
+title: "Colonic tumours - gene list"
+author: "CKing"
+date: "3/6/2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#### The ```disgenet2r``` R package contains a set of functions to retrieve, visualize and expand DisGeNET data. DisGeNET is a discovery platform that contains information about the genetic basis of human diseases (Piñero et al. 2015; Piñero et al. 2017). DisGeNET integrates data from several expert curated databases and from text-mining the biomedical literature. https://www.disgenet.org/home/
+
+## *MeSH Unique ID for Colorectal Neoplasms: D015179*
+
+```{r}
+library(disgenet2r, lib.loc = "/usr/lib/R/site-library")
+library(dplyr)
+```
+#### The DisGeNET score ranges from 0 to 1, and takes into account the evidence supporting the association (See more information at https://www.disgenet.org/dbinfo#score)
+```{r}
+
+data <- disease2gene( disease  = "D015179", vocabulary = "MESH",
+                       database = "CURATED",
+                       score    = c(0.6,1 ) )
+
+```
+
+```{r}
+data
+```
+
+```{r}
+data@qresult[["gene_symbol"]]
+```
+
+```{r}
+# List them
+cat(paste(paste(data@qresult$gene_symbol, collapse= "\n "), "\n"))
+# convert to data.frame
+found_genes <- as.data.frame(data@qresult$gene_symbol)
+```
+## *Display the gene names found*
+```{r}
+# First Remove duplicates from list 
+found_genes <- found_genes %>% distinct()
+found_genes
+```
+
+
+
+### Plot
+```{r pressure, echo=FALSE}
+plot(data,
+     prop=2)
+```
+
+
+## *Exclude genes already on the BD panel and show final list of genes found*
+```{r}
+# read in BD panel
+bd_list <- read.delim("/home/cathal_king/Desktop/BD_Onco_BC_Panel.txt", header = F)
+
+# filter
+results <- found_genes %>% filter(!(`data@qresult$gene_symbol` %in% bd_list$V1))
+# show final list of 10 genes
+results
+```
+
+```{r}
+# export gene list to file
+write.table(results, file = "colonic_genes.txt", sep = "\n",
+            row.names = F, col.names = F, quote = F)
+
+```
