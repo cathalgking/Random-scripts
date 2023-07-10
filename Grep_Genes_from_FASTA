@@ -1,0 +1,5 @@
+# extract all GENE names from FASTA header lines e.g
+# "ADA|NM_000022.3|Reference_end site_id:194282, AMPLICO"
+# seperated by pipe operator
+
+grep ">" gene.fasta | tr -d ">"  | cut -d "|" -f1  > gene_names.txt
