@@ -1,0 +1,5 @@
+# indent a list of strings and number them
+# commonly used for indentint a list of barcodes for the barcode.list file required for the splitBarcode de-multiplexing tool
+
+awk -F "\t" '{print NR"\t"$1}' [filename]
+
